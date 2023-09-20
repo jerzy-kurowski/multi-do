@@ -1,0 +1,33 @@
+version: '3'
+
+volumes:
+  multi_do_local_postgres_data: {}
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: ./compose/local/fastapi/Dockerfile
+    image: multi_do_local_fastapi
+    container_name: multi_do_local_fastapi
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app:z
+    env_file:
+      - ./.envs/.local/.fastapi
+    command: /start
+    ports:
+      - "8000:5000"
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: multi_do_local_postgres
+    container_name: multi_do_local_postgres
+    volumes:
+      - multi_do_local_postgres_data:/var/lib/postgresql/data
+      - ./compose/production/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+    env_file:
+      - ./.envs/.local/.postgres

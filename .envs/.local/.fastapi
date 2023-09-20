@@ -1,0 +1,4 @@
+# Database
+# ------------------------------------------------------------------------------
+DATABASE_URL=postgresql+asyncpg://AQPfBejOTzHAgZzVTXWZkeFfZXTESeRM:0V42k0Hc1aKeclZoGkswocUIULQygDCIVoLLrqSXXzZfgUQ7caD56pVbmXSWAa15@postgres:5432/multi_do
+PSYCOPG_DATABASE_URL=postgres://AQPfBejOTzHAgZzVTXWZkeFfZXTESeRM:0V42k0Hc1aKeclZoGkswocUIULQygDCIVoLLrqSXXzZfgUQ7caD56pVbmXSWAa15@postgres:5432/multi_do

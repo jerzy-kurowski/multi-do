@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+alembic upgrade head
+
+exec /usr/local/bin/gunicorn core.server --bind 0.0.0.0:5000 --chdir=/app -k uvicorn.workers.UvicornWorker
